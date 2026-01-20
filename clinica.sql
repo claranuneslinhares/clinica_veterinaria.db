@@ -1,5 +1,3 @@
-CREATE DATABASE dbclinica_vet;
-USE dbclinica_vet;
 -- TABELA: Especies
 CREATE TABLE dbclinica_vet.especies (
 id_especie INT AUTO_INCREMENT PRIMARY KEY,
