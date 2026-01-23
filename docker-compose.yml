@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_clinica
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dbclinica_vet
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./clinica.sql:/docker-entrypoint-initdb.d/clinica.sql
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+volumes:
+  mysql_data:
